@@ -1,8 +1,5 @@
 # Lab №1 for Console Application Developing
 
-## Report for lab work
-Report avaible on https://github.com/Urtyom-Alyanov/LabCS01/blob/main/report.docx
-
 ## Download
 You can download a prebuilded executable files on [releases](https://github.com/Urtyom-Alyanov/LabCS01/releases/latest)
 
