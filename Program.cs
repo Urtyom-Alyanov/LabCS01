@@ -3,7 +3,7 @@
   const int MAX_ABS_COEF = 10_000;
 
   // Метод для ввода и валидации коэффициентов
-  static private int GetAndValidateCoefficient(string? prompt)
+  static private int? GetAndValidateCoefficient(string? prompt)
   {
     try
     {
@@ -32,7 +32,9 @@
     {
       Console.WriteLine("Ошибка. Введите корректное целое число.");
     }
-    return GetAndValidateCoefficient(prompt);
+    Environment.Exit(0);
+    return null;
+    // return GetAndValidateCoefficient(prompt);
   }
 
   static private void LinearEquationSolution(int B, int C)
@@ -81,7 +83,7 @@
 
   private static void Main(string[] args)
   {
-    int A, B, C;
+    int? A, B, C;
 
     // Ввод и валидация коэффициентов
     Console.WriteLine("Введите коэффициенты A, B и C для уравнения Ax² + Bx + C = 0 по порядку:");
@@ -89,14 +91,17 @@
     B = GetAndValidateCoefficient("Введите B");
     C = GetAndValidateCoefficient("Введите C");
 
+    if (A == null || B == null || C == null)
+      return;
+
     // Если уравнение линейное, то решаем его, см. метод
     if (A == 0)
     {
-      LinearEquationSolution(B, C);
+      LinearEquationSolution((int)B, (int)C);
       return;
     }
 
     // Если уравнение квадратное, то решаем его, см. метод
-    SquareEquationSolution(A, B, C);
+    SquareEquationSolution((int)A, (int)B, (int)C);
   }
 }
